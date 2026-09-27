@@ -90,3 +90,16 @@ def matricular_cliente(id_servicio, id_cliente, meses_duracion):
             
     print(f"❌ El servicio '{id_servicio}' no fue encontrado. Por favor revisar nuevamente 😕")
 
+def listar_matriculados_por_servicio(id_servicio):
+    """Función de apoyo para el módulo 4 (Reportes) para ver el detalle de inscritos."""
+    for item in lista_servicios:
+        if item["id"] == id_servicio:
+            print(f"\n--- MATRICULADOS EN: {item['nombre']} ---")
+            if not item["clientes_matriculados"]:
+                print("No hay clientes inscritos en este servicio aún.")
+                return
+            
+            for matricula in item["clientes_matriculados"]:
+                print(f"Cliente ID: {matricula['id_cliente']} | Inicio: {matricula['fecha_inicio']} | Instructor: {matricula['instructor_encargado']}")
+            return
+    print(f"❌ Servicio '{id_servicio}' no encontrado.")
