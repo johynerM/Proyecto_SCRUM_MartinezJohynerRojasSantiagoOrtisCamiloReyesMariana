@@ -29,4 +29,14 @@ def incripcion_cliente(id_servicio, id_cliente):
                 print("No hay espacio lo lamento, intentalo en otro momento o consulta otros servicios 🙇‍♂️🙇‍♀️")
             return
     print(f"❌ El servicio {id_servicio} no encontrado, porfavor revisar nuevamente 😕")
-
+#Cancela la subscripcion de un cliente a un servicio
+def cancelar_inscripcion(id_servicio, id_cliente):
+    for item in lista_servicios:
+        if item["id"] == id_servicio:
+            if id_cliente in item["clientes_inscritos"]:
+                item["clientes_inscritos"].remove(id_cliente)
+                print(f"Has cancelado el servicio con exito 👌") 
+            else:
+                print(f"Este id {id_cliente} de cliente no estaba inscrito en la lista")
+            return
+    print(f"❌ Este servicio {id_servicio} no existe en el sistema ❌")
