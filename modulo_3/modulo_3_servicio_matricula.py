@@ -103,3 +103,32 @@ def listar_matriculados_por_servicio(id_servicio):
                 print(f"Cliente ID: {matricula['id_cliente']} | Inicio: {matricula['fecha_inicio']} | Instructor: {matricula['instructor_encargado']}")
             return
     print(f"❌ Servicio '{id_servicio}' no encontrado.")
+
+# ==========================================
+# PRUEBAS DEL MÓDULO (Para validar el funcionamiento)
+# ==========================================
+if __name__ == "__main__":
+    # 1. Cargar servicios obligatorios
+    inicializar_servicios_base()
+    
+    # 2. Asignar instructores
+    asignar_instructor_servicio("S01", "María López")
+    asignar_instructor_servicio("S02", "Carlos Ruiz")
+    
+    # 3. Listar servicios para ver el estado inicial
+    listar_servicios()
+    
+    # 4. Matricular clientes
+    print("\n--- INICIANDO MATRÍCULAS ---")
+    matricular_cliente("S01", "C-1001", 3) # Cliente C-1001 a Yoga por 3 meses
+    matricular_cliente("S01", "C-1002", 1) # Cliente C-1002 a Yoga por 1 mes
+    matricular_cliente("S09", "C-1003", 2) # Servicio que no existe (prueba de error)
+    
+    # 5. Forzar el límite de capacidad en Entrenamiento Personalizado (capacidad 5)
+    print("\n--- PRUEBA DE LÍMITE DE CAPACIDAD ---")
+    asignar_instructor_servicio("S03", "Andrés Camilo")
+    for i in range(6):
+        matricular_cliente("S03", f"C-200{i}", 1)
+        
+    # 6. Listado detallado para reportes (Conexión con Módulo 4)
+    listar_matriculados_por_servicio("S01")
