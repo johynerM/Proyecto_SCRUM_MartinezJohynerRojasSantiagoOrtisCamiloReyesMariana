@@ -53,3 +53,40 @@ def asignar_instructor_servicio(id_servicio, nombre_instructor):
             return
     print(f"❌ Error: El servicio con ID '{id_servicio}' no existe.")
 
+# ==========================================
+# 2. MÓDULO DE MATRÍCULAS Y ASIGNACIÓN
+# ==========================================
+
+def matricular_cliente(id_servicio, id_cliente, meses_duracion):
+    """
+    Asigna un cliente a un servicio validando la capacidad máxima.
+    Registra fecha de inicio, duración y relaciona al instructor encargado.
+    """
+    for item in lista_servicios:
+        if item["id"] == id_servicio:
+            # Validación de capacidad
+            inscritos_actuales = len(item["clientes_matriculados"])
+            if inscritos_actuales >= item["capacidad_max"]:
+                print(f"⚠️ No hay espacio en '{item['nombre']}'. Capacidad máxima ({item['capacidad_max']}) alcanzada. 🙇‍♂️")
+                return
+            
+            # Generación de datos de matrícula requeridos
+            fecha_inicio = datetime.now()
+            fecha_fin = fecha_inicio + timedelta(days=30 * meses_duracion)
+            
+            # Creando el registro de matrícula completo
+            nueva_matricula = {
+                "id_cliente": id_cliente,
+                "fecha_inicio": fecha_inicio.strftime("%Y-%m-%d"),
+                "fecha_fin": fecha_fin.strftime("%Y-%m-%d"),
+                "duracion_meses": meses_duracion,
+                "instructor_encargado": item["instructor"]
+            }
+            
+            item["clientes_matriculados"].append(nueva_matricula)
+            print(f"😁 Cliente '{id_cliente}' matriculado en '{item['nombre']}' con éxito ✅✅")
+            print(f"   📅 Inicio: {nueva_matricula['fecha_inicio']} | Fin: {nueva_matricula['fecha_fin']} | Instructor: {nueva_matricula['instructor_encargado']}")
+            return
+            
+    print(f"❌ El servicio '{id_servicio}' no fue encontrado. Por favor revisar nuevamente 😕")
+
