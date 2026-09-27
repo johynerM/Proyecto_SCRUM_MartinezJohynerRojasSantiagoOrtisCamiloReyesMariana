@@ -19,3 +19,16 @@ def crear_servicio(id_servicio, nombre, capacidad, instructor):
     }
     lista_servicios.append(nuevo_servicio)
     print(f"✅ Servicio '{nombre}' registrado con éxito.")
+
+def inicializar_servicios_base():
+    """Carga los servicios obligatorios mencionados en el requerimiento."""
+    print("Iniciando carga de servicios base...")
+    crear_servicio("S01", "Clases de yoga", 15, "Por asignar")
+    crear_servicio("S02", "Clases de pilates", 15, "Por asignar")
+    crear_servicio("S03", "Entrenamiento personalizado", 5, "Por asignar")
+    crear_servicio("S04", "Acceso a la piscina", 20, "Sin instructor (Libre)")
+    crear_servicio("S05", "Uso del gimnasio general", 50, "Sin instructor (Libre)")
+    print("-" * 40)
+
+    
+
