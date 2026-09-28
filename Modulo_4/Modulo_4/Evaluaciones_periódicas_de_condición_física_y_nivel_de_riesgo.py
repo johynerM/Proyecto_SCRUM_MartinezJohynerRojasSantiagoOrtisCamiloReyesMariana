@@ -16,7 +16,7 @@ def calcular_nivel_de_riesgo(asistencia_porcentaje, ultima_evaluacion):
 
     grasa = ultima_evaluacion.get("metricas", {}).get("grasa_corporal", 0)
  
-    if asistencia_porcentaWje < 40 or grasa > 35:
+    if asistencia_porcentaje < 40 or grasa > 35:
         return "alto"
     elif asistencia_porcentaje < 70 or grasa > 25:
         return "medio"

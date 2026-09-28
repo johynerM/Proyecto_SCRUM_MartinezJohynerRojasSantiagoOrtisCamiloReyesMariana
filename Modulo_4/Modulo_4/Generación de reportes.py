@@ -1,5 +1,7 @@
 #Clientes inscritos	ReporteClientesInscritos(filtros)	Lista de clientes activos, posiblemente por servicio o rango de fechas
 
+def reporte_clientes_inscritos(clientes):
+    return [c for c in clientes if c.get("estado") == "activo"]
 
 #Servicios y su capacidad	ReporteServiciosCapacidad()	Cupo máximo vs. inscritos actuales por servicio
 
