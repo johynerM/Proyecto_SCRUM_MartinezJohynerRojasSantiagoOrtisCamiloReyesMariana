@@ -1,9 +1,19 @@
+<<<<<<< HEAD
 # Interfaz y menu de usuario 
 import logica_usuarios as logica
 
 # Pedir datos para registrar un usuario
 def registrar_usuario():
     print("\nRegistro de usuario")
+=======
+# INTERFAZ Y MENÚS DE USUARIOS
+import logica_usuarios as logica
+
+
+# Pedir datos para registrar un usuario
+def registrar_usuario():
+    print("\n--- REGISTRO DE USUARIO ---")
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
     id_user = input("Ingrese el ID: ")
     clave = input("Ingrese la contraseña: ")
     rol = input("Tipo de usuario (Cliente/Instructor/Administrador): ")
@@ -41,7 +51,12 @@ def registrar_usuario():
         disponibilidad,
         clases,
     )
+<<<<<<< HEAD
     print("Usuario guardado con éxito")
+=======
+    print("¡Usuario guardado con éxito!")
+
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
 
 # Pedir datos para iniciar sesion
 def iniciar_sesion():
@@ -55,6 +70,10 @@ def iniciar_sesion():
     else:
         print("Usuario o contraseña incorrectos.")
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
 # Cerrar la sesion en pantalla
 def cerrar_sesion():
     if logica.usuario_creado != None:
@@ -63,13 +82,21 @@ def cerrar_sesion():
     else:
         print("No hay ninguna sesión activa.")
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
 # Mostrar los datos en pantalla
 def ver_perfil():
     u = logica.usuario_creado
     if u == None:
         print("Primero debes iniciar sesión.")
     else:
+<<<<<<< HEAD
         print("\nPerfil del usuario")
+=======
+        print("\n--- PERFIL DE USUARIO ---")
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
         print("ID:", u["id"])
         print("Nombre completo:", u["nombre"], u["apellido"])
         print("Rol:", u["rol"])
@@ -86,11 +113,19 @@ def ver_perfil():
         elif u["rol"] == "Administrador":
             print("Permisos: Control total del gimnasio")
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
 # Menu del modulo de usuarios
 def menu_modulo_usuarios():
     while True:
         print("\n==============================")
+<<<<<<< HEAD
         print(" Menu de usuarios ")
+=======
+        print(" MENÚ DE USUARIOS ")
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
         print("==============================")
 
         if logica.usuario_creado != None:
@@ -119,7 +154,11 @@ def menu_modulo_usuarios():
         elif opcion == "4":
             cerrar_sesion()
         elif opcion == "5":
+<<<<<<< HEAD
             print("Saliendo del módulo")
+=======
+            print("Saliendo del módulo...")
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
             break
         else:
             print("Opción no válida, intente de nuevo.")

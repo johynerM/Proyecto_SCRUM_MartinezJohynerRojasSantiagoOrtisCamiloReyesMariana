@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Interfaz y menu de usuario
 import logica_usuarios as logica
 
@@ -8,6 +9,19 @@ def menu_modulo_usuarios():
     while True:
         print("\n==============================")
         print(" Menu de usuarios ")
+=======
+# INTERFAZ Y MENÚS DE USUARIOS
+import logica_usuarios as logica
+
+# ... (tus otras funciones: registrar_usuario, iniciar_sesion, etc.) ...
+
+
+# ESTA ES LA FUNCIÓN QUE TE MARCA ERROR, ASEGÚRATE DE QUE ESTÉ ESCRITA ASÍ:
+def menu_modulo_usuarios():
+    while True:
+        print("\n==============================")
+        print(" MENÚ DE USUARIOS ")
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
         print("==============================")
 
         if logica.usuario_creado != None:
