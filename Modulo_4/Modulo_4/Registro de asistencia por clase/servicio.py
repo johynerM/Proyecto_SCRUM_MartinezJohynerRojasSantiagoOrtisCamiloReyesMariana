@@ -18,5 +18,8 @@ def consultar_asistencia_por_cliente(asistencias, cliente_id):
 
 #ConsultarAsistenciaPorServicio(servicio_id, fecha) — devuelve quién asistió a una clase/servicio en una fecha dada.
 
+def consultar_asistencia_por_servicio(asistencias, servicio_id, fecha):
+    return [a for a in asistencias
+            if a["servicio_id"] == servicio_id and a["fecha"] == fecha]
 
 #CalcularPorcentajeAsistencia(cliente_id, periodo) — útil como insumo para las evaluaciones de rendimiento.
