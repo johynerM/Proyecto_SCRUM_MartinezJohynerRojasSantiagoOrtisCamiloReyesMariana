@@ -17,7 +17,9 @@ def reporte_servicios_capacidad(servicios):
     return reporte
 
 #Instructores activos	ReporteInstructoresActivos()	Lista de instructores con estado activo y servicios asignados
-
+ 
+def reporte_instructores_activos(instructores):
+    return [i for i in instructores if i.get("estado") == "activo"]
 
 #Clientes con bajo rendimiento/riesgo alto	ReporteClientesRiesgo(nivel_minimo)	Cruce entre nivel de riesgo y/o asistencia baja
 
