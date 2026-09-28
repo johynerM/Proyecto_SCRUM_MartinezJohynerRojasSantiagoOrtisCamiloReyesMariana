@@ -30,3 +30,10 @@ def reporte_clientes_riesgo(clientes, nivel_minimo="alto"):
             if niveles.get(c.get("nivel_riesgo", "bajo"), 1) >= minimo]
 
 #Progreso por servicio	ReporteProgresoPorServicio(servicio_id)	Evolución de evaluaciones físicas de los clientes de ese servicio
+
+def reporte_progreso_por_servicio(evaluaciones, clientes_del_servicio):
+    
+    progreso = {}
+    for cliente_id in clientes_del_servicio:
+        progreso[cliente_id] = consultar_historial_evaluaciones(evaluaciones, cliente_id)
+    return progreso
