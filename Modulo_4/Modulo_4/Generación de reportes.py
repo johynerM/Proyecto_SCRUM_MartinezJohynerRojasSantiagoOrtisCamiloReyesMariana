@@ -23,5 +23,10 @@ def reporte_instructores_activos(instructores):
 
 #Clientes con bajo rendimiento/riesgo alto	ReporteClientesRiesgo(nivel_minimo)	Cruce entre nivel de riesgo y/o asistencia baja
 
+def reporte_clientes_riesgo(clientes, nivel_minimo="alto"):
+    niveles = {"bajo": 1, "medio": 2, "alto": 3}
+    minimo = niveles.get(nivel_minimo, 3)
+    return [c for c in clientes
+            if niveles.get(c.get("nivel_riesgo", "bajo"), 1) >= minimo]
 
 #Progreso por servicio	ReporteProgresoPorServicio(servicio_id)	Evolución de evaluaciones físicas de los clientes de ese servicio
