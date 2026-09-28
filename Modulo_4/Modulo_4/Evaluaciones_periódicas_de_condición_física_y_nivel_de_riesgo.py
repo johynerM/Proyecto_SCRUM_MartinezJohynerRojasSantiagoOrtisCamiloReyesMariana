@@ -33,3 +33,6 @@ def actualizar_nivel_de_riesgo(clientes, cliente_id, nuevo_nivel):
     return None  # cliente no encontrado
 
 #ConsultarHistorialEvaluaciones(cliente_id) — devuelve la evolución de las evaluaciones físicas en el tiempo (esto alimenta el reporte de "progreso por servicio").
+
+def consultar_historial_evaluaciones(evaluaciones, cliente_id):
+    return [e for e in evaluaciones if e["cliente_id"] == cliente_id]
