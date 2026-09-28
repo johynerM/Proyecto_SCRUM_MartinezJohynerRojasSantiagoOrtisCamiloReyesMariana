@@ -75,38 +75,39 @@ def modificar_servicio (id_servicio, nuevo_intructor=None, nueva_capacidad=None)
                 return
             print(f"El servicio con ID {id_servicio} no esta en esta area.")
 #Ahora vamos a hacer el menu para hacer que el cliente pueda escoger lo que desee hacerwhile True:
-while True:
-    print("="*40)
-    print("     🎽Services ForceTech💪      ")
-    print("="*40)
-    print("1. Crear servicio \n2. Informacion de Servicios \n3. Inscribirse a un servicio \n4. Cancelar Servicio \n5. Modificar Servicio \n6. Volver al menú anterior")
-    opcion = int(input("Escoge una opcion (1-5): "))
-    if opcion == 1:
-        id_serv = input("Ingresa el id del servicio: ").lower()
-        nomb = input("Ingrese el nombre del servicio: ").lower()
-        instruc = input("Ingresa el nombre del instructor: ").lower()
-        try:
-            cap_max = int(input("Ingresa el cupo máximo (número): "))
-        except ValueError:
-            print("❌ El cupo máximo debe ser un número entero (se asignó 10 por defecto).")
-            cap_max = 10            
-        crear_servicio(id_serv, nomb, cap_max, instruc)
-    if opcion == 2:
-        listar_servicios()
-    if opcion == 3:
-        id_serv=input("Ingresa el id del servicio: ").lower()
-        id_client=input("Ingresa tu id: ").lower()
-        inscripcion_cliente(id_serv,id_client)
-    if opcion == 4:
-        id_serv=input("Ingresa el id del servicio: ").lower()
-        id_client=input("Ingresa tu id: ").lower()
-        cancelar_inscripcion(id_serv,id_client)
-    if opcion ==5:
-        id_serv = input("Ingresa el id del servicio a modificar: ").lower()
-        instruc = input("Nuevo instructor (Enter para omitir): ").lower()
-        cap_str = input("Nuevo cupo máximo (Enter para omitir): ")        
-        instruc = instruc if instruc.strip() != "" else None
-        cap_max = int(cap_str) if cap_str.strip() != "" else None        
-        modificar_servicio(id_serv, nuevo_intructor=instruc, nueva_capacidad=cap_max)
-    if opcion == 6:
-        break
+def menu_servicios():
+    while True:
+        print("="*40)
+        print("   Services ForceTech 🏋️")
+        print("="*40)
+        print("1. Crear servicio \n2. Informacion de Servicios \n3. Inscribirse a un servicio \n4. Cancelar Servicio \n5. Modificar Servicio \n6. Volver al menú anterior")
+        opcion = int(input("Escoge una opcion (1-6): "))
+        if opcion == 1:
+            id_serv = input("Ingresa el id del servicio: ").lower()
+            nomb = input("Ingrese el nombre del servicio: ").lower()
+            instruc = input("Ingresa el nombre del instructor: ").lower()
+            try:
+                cap_max = int(input("Ingresa el cupo máximo (número): "))
+            except ValueError:
+                print("❌ El cupo máximo debe ser un número entero (se asignó 10 por defecto).")
+                cap_max = 10            
+            crear_servicio(id_serv, nomb, cap_max, instruc)
+        if opcion == 2:
+            listar_servicios()
+        if opcion == 3:
+            id_serv=input("Ingresa el id del servicio: ").lower()
+            id_client=input("Ingresa tu id: ").lower()
+            inscripcion_cliente(id_serv,id_client)
+        if opcion == 4:
+            id_serv=input("Ingresa el id del servicio: ").lower()
+            id_client=input("Ingresa tu id: ").lower()
+            cancelar_inscripcion(id_serv,id_client)
+        if opcion ==5:
+            id_serv = input("Ingresa el id del servicio a modificar: ").lower()
+            instruc = input("Nuevo instructor (Enter para omitir): ").lower()
+            cap_str = input("Nuevo cupo máximo (Enter para omitir): ")        
+            instruc = instruc if instruc.strip() != "" else None
+            cap_max = int(cap_str) if cap_str.strip() != "" else None        
+            modificar_servicio(id_serv, nuevo_intructor=instruc, nueva_capacidad=cap_max)
+        if opcion == 6:
+            break
