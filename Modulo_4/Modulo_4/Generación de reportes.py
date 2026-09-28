@@ -5,6 +5,16 @@ def reporte_clientes_inscritos(clientes):
 
 #Servicios y su capacidad	ReporteServiciosCapacidad()	Cupo máximo vs. inscritos actuales por servicio
 
+def reporte_servicios_capacidad(servicios):
+    reporte = []
+    for s in servicios:
+        reporte.append({
+            "servicio": s["nombre"],
+            "capacidad_max": s["capacidad_max"],
+            "inscritos": len(s.get("inscritos", [])),
+            "cupos_disponibles": s["capacidad_max"] - len(s.get("inscritos", []))
+        })
+    return reporte
 
 #Instructores activos	ReporteInstructoresActivos()	Lista de instructores con estado activo y servicios asignados
  
@@ -22,8 +32,10 @@ def reporte_clientes_riesgo(clientes, nivel_minimo="alto"):
 #Progreso por servicio	ReporteProgresoPorServicio(servicio_id)	Evolución de evaluaciones físicas de los clientes de ese servicio
 
 def reporte_progreso_por_servicio(evaluaciones, clientes_del_servicio):
-    
     progreso = {}
     for cliente_id in clientes_del_servicio:
-        progreso[cliente_id] = consultar_historial_evaluaciones(evaluaciones, cliente_id)
+        progreso[cliente_id] = sorted(
+            (e for e in evaluaciones if e.get("cliente_id") == cliente_id),
+            key=lambda e: e.get("fecha", ""),
+        )
     return progreso
