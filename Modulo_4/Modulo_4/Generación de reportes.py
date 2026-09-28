@@ -5,6 +5,16 @@ def reporte_clientes_inscritos(clientes):
 
 #Servicios y su capacidad	ReporteServiciosCapacidad()	Cupo máximo vs. inscritos actuales por servicio
 
+def reporte_servicios_capacidad(servicios):
+    reporte = []
+    for s in servicios:
+        reporte.append({
+            "servicio": s["nombre"],
+            "capacidad_max": s["capacidad_max"],
+            "inscritos": len(s.get("inscritos", [])),
+            "cupos_disponibles": s["capacidad_max"] - len(s.get("inscritos", []))
+        })
+    return reporte
 
 #Instructores activos	ReporteInstructoresActivos()	Lista de instructores con estado activo y servicios asignados
 
