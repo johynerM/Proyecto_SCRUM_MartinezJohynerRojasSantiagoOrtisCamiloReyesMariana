@@ -13,6 +13,8 @@ def registrar_asistencia(asistencias, cliente_id, servicio_id, fecha, estado):
 
 #ConsultarAsistenciaPorCliente(cliente_id, rango_fechas) — devuelve el historial de asistencia de un cliente.
 
+def consultar_asistencia_por_cliente(asistencias, cliente_id):
+    return [a for a in asistencias if a["cliente_id"] == cliente_id]
 
 #ConsultarAsistenciaPorServicio(servicio_id, fecha) — devuelve quién asistió a una clase/servicio en una fecha dada.
 
