@@ -1,5 +1,14 @@
 #RegistrarEvaluacionFisica(cliente_id, fecha, métricas) — guarda datos como peso, % grasa corporal, resistencia, fuerza, etc. (según lo que maneje tu proyecto).
 
+def registrar_evaluacion_fisica(evaluaciones, cliente_id, fecha, metricas):
+
+    registro = {
+        "cliente_id": cliente_id,
+        "fecha": fecha,
+        "metricas": metricas
+    }
+    evaluaciones.append(registro)
+    return registro
 
 #CalcularNivelDeRiesgo(cliente_id) — aplica la lógica/reglas de negocio (por ejemplo, según edad, condición médica, resultados de evaluación, asistencia) para clasificar el riesgo (bajo/medio/alto).
 
