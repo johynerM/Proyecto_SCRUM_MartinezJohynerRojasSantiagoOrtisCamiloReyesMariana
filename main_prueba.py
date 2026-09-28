@@ -1,6 +1,5 @@
 # ARCHIVO PRINCIPAL DE EJECUCIÓN
 import modulo_usuarios as mod_usuarios
-import modulo3_servicios as mod_servicios
 from modulo_3 import modulo_3_servicio_matricula as mod_3
 import modulo_2_servicios_clientes
 from Modulo_4.Modulo_4 import Generacion_de_reportes as mod_4_reportes
