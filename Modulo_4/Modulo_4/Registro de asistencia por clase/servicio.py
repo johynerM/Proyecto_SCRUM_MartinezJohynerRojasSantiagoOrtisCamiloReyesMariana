@@ -23,3 +23,10 @@ def consultar_asistencia_por_servicio(asistencias, servicio_id, fecha):
             if a["servicio_id"] == servicio_id and a["fecha"] == fecha]
 
 #CalcularPorcentajeAsistencia(cliente_id, periodo) — útil como insumo para las evaluaciones de rendimiento.
+
+def calcular_porcentaje_asistencia(asistencias, cliente_id):
+    registros = consultar_asistencia_por_cliente(asistencias, cliente_id)
+    if not registros:
+        return 0
+    presentes = sum(1 for r in registros if r["estado"] == "presente")
+    return round((presentes / len(registros)) * 100, 2)
