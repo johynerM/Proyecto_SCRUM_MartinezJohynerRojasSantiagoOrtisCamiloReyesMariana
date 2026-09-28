@@ -1,6 +1,6 @@
 # ARCHIVO PRINCIPAL DE EJECUCIÓN
 import modulo_usuarios as mod_usuarios
-
+import modulo3_servicios as mod_servicios
 
 def menu_principal():
     while True:
@@ -16,7 +16,7 @@ def menu_principal():
         if opcion == "1":
             mod_usuarios.menu_modulo_usuarios()  # Llama a la función del módulo
         elif opcion == "2":
-            print("\n[Aquí se conecta el trabajo de los compañeros]")
+            mod_servicios.menu_modulo_3()
         elif opcion == "3":
             print("¡Gracias por usar el sistema!")
             break
