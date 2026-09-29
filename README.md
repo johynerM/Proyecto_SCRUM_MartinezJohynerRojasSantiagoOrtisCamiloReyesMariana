@@ -78,6 +78,33 @@ Encargado de la gestión económica y administrativa de las inscripciones.
 - **Inicialización de Servicios Base:** Carga la oferta inicial de servicios disponibles.
 - **Matriculamiento:** Registro de pagos, asignación de planes y control de vigencias de suscripción.
 
+El Módulo 3 es el núcleo operativo para la gestión logística y comercial de las actividades del gimnasio. Es el encargado de estructurar el catálogo de clases, organizar la asignación de instructores, procesar las inscripciones de los clientes y asegurar que los espacios físicos del gimnasio no superen su límite de capacidad.
+
+**Propósito General y Alcance:**
+Este módulo administra el ciclo de vida completo de la oferta deportiva y el flujo de matrículas. Su alcance abarca desde la configuración inicial de los servicios base hasta el control estricto de aforo (ocupación máxima permitida por clase) y el cálculo matemático automatizado de las fechas de vencimiento de las suscripciones. Además, actúa como el proveedor principal de datos estructurados para que el Módulo 4 pueda consumir esta información y generar sus reportes gerenciales.
+
+**structura de Datos y Persistencia:**
+Maneja la información mediante almacenamiento dinámico en memoria, utilizando una estructura de datos relacional basada en una lista principal (lista_servicios) que contiene diccionarios anidados:
+* Datos del Servicio: Cada registro almacena los atributos clave de la clase: ID, nombre, capacidad máxima, e instructor.
+* Datos de Matrícula (Anidado): Dentro de cada servicio existe una sublista llamada **clientes_matriculados**. Por cada inscripción, se guarda un diccionario detallado con: ID del cliente, fecha de inicio (generada por el sistema), fecha de fin (calculada automáticamente), duración en meses e instructor encargado.
+
+**Funciones Principales y Flujo de Trabajo:**
+
+**Gestión del Catálogo y Personal:**
+* Función **inicializar_servicios_base():** Automatiza la carga inicial del sistema. Al ejecutarse, preconfigura e inyecta en el sistema los cinco servicios obligatorios del gimnasio (Yoga, Pilates, Entrenamiento personalizado, Piscina y Gimnasio general) con sus respectivos aforos predefinidos, garantizando que el sistema esté operativo desde el primer segundo.
+* Función **crear_servicio():** Permite a los administradores expandir la oferta del gimnasio creando nuevas disciplinas. Solicita un código único, el nombre de la actividad, define el límite de aforo permitido y establece el instructor a cargo (o lo deja en estado "Por asignar").
+* Función **asignar_instructor_servicio():** Gestiona el talento humano de las clases. Permite buscar un servicio específico por su ID y actualizar o asignar de forma dinámica el nombre del profesional que lo va a impartir, reflejando el cambio inmediatamente en el catálogo.
+
+**Control de Aforo y Procesamiento de Matrículas:**
+* Función **listar_servicios():** Procesa y muestra en consola de forma amigable todo el catálogo activo. Su característica principal es que calcula en tiempo real la disponibilidad de cupos (restando la cantidad de personas inscritas a la capacidad máxima de la clase), permitiendo al usuario saber de un vistazo si hay espacio disponible.
+* Función **matricular_cliente():** Es el motor transaccional del módulo. Ejecuta un flujo de validación riguroso antes de inscribir a un usuario:
+  1. Validación de Existencia: Verifica que el código del servicio ingresado sea válido.
+  2. Control de Capacidad Restrictivo: Evalúa si la clase alcanzó su límite de personas. Si el aforo está lleno, bloquea la transacción y emite una alerta, previniendo la sobreocupación.
+  3. Automatización de Fechas: Si hay cupo, utiliza la librería interna de fechas para estampar el día actual como inicio del plan, y calcula con precisión matemática la fecha de vencimiento sumando bloques de 30 días según los meses pagados por el cliente.
+
+**Integración y Salida de Datos:**
+* Función **listar_matriculados_por_servicio():** Actúa como el puente de conexión directa con el Módulo 4 (Reportes). Busca un servicio específico, extrae el historial detallado de todos los clientes matriculados en él y exporta los datos limpios (IDs, fechas e instructores). Esto permite que el área administrativa o los módulos de reporte evalúen el progreso, la ocupación y el estado activo de los usuarios.
+
 ![Módulo 3](imagenes/modulo_3.jpeg)
 
 ### 5. Módulo 4: Seguimiento, Evaluación y Reportes (`Modulo_4_Modulo_4/`)
