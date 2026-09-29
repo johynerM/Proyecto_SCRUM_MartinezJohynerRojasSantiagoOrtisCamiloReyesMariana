@@ -25,7 +25,7 @@ El **Sistema Gimnasio ForceTech** es una solución informática que permite admi
 
 Es el punto de entrada al sistema. Despliega el menú principal y redirecciona el flujo de ejecución hacia cada módulo especializado del programa mediante la importación y llamada de sus funciones correspondientes.
 
-![Texto Alternativo](imagenes\imagen_menu.jpeg)
+![Menú Principal](imagenes/imagen_menu.jpeg)
 
 ### 2. Módulo 1: Gestión de Usuarios y Autenticación (`modulo_usuarios.py` y `logica_usuarios.py`)
 Este proyecto consiste en un módulo en Python diseñado para la interfaz y gestión de usuarios dentro de un sistema de gimnasio. Permite registrar diferentes tipos de roles, administrar credenciales de acceso, iniciar/cerrar sesión y consultar perfiles personalizados según las responsabilidades o información de cada tipo de usuario.
@@ -48,7 +48,7 @@ o	Desconecta al usuario activo del sistema y resetea la sesión en la lógica.
     5.	Menú Interactivo:
 o	Bucle while con opciones dinámicas que muestra de forma constante quién es el usuario que tiene la sesión activa.
 
-![Texto Alternativo](imagenes\modulo_1.jpeg)
+![Módulo 1](imagenes/modulo_1.jpeg)
 
 ### 3. Módulo 2: Gestión de Servicios y Clientes (`modulo_2_servicios_clientes.py`)
 
@@ -71,14 +71,14 @@ Por medio de un submenú el usuario podrá visualizar diferentes opciones que po
        3. Evalúa la disponibilidad de aforo (`Cupos Ocupados < Cupo Máximo`). Si hay disponibilidad, incrementa el contador y efectúa la vinculación; de lo contrario, notifica que el cupo se encuentra agotado.
      - **Función `menu_servicios()`:** Es la interfaz de interacción del módulo. Muestra las opciones disponibles en consola y captura la opción ingresada por el usuario, redirigiéndolo a la función lógica correspondiente mediante estructuras condicionales (`if-elif-else`).
 
-![Texto Alternativo](imagenes\modulo_2.jpeg)
+![Módulo 2](imagenes/modulo_2.jpeg)
 
 ### 4. Módulo 3: Servicios y Matrículas (`modulo_3_servicio_matricula.py`)
 Encargado de la gestión económica y administrativa de las inscripciones.
 - **Inicialización de Servicios Base:** Carga la oferta inicial de servicios disponibles.
 - **Matriculamiento:** Registro de pagos, asignación de planes y control de vigencias de suscripción.
 
-![Texto Alternativo](imagenes\modulo_3.jpeg)
+![Módulo 3](imagenes/modulo_3.jpeg)
 
 ### 5. Módulo 4: Seguimiento, Evaluación y Reportes (`Modulo_4_Modulo_4/`)
 El Módulo 4 se encarga de medir el progreso de los clientes y generar la información de salida del sistema. Permite registrar la asistencia a clases/servicios, llevar evaluaciones periódicas de condición física con actualización automática del nivel de riesgo, y generar los reportes clave para la toma de decisiones (clientes inscritos, capacidad de servicios, instructores activos, clientes en riesgo y progreso por servicio).
@@ -111,7 +111,7 @@ El Módulo 4 se encarga de medir el progreso de los clientes y generar la inform
      - **Función `reporte_progreso_por_servicio()`:** Genera el historial de evaluaciones de todos los clientes inscritos en un servicio, mostrando su progreso.
 ---
 
-![Texto Alternativo](imagenes\modulo_4.jpeg)
+![Módulo 4](imagenes/modulo_4.jpeg)
 
 ## 📁 Estructura del Proyecto
 
