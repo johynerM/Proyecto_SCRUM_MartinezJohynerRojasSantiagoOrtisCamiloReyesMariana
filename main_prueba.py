@@ -24,21 +24,13 @@ def menu_principal():
         opcion = input("Elija una opción (1-5): ").strip()
 
         if opcion == "1":
-            if hasattr(modulo_usuarios, 'menú_principal'):
-                modulo_usuarios.menú_principal()
-            elif hasattr(modulo_usuarios, 'menu_usuarios'):
-                modulo_usuarios.menu_usuarios()
-            else:
-                print("⚠️ Función del menú de usuarios no encontrada.")
+            mod_usuarios.menu_modulo_usuarios()
 
         elif opcion == "2":
-            mod_servicios.menu_modulo_3()
-            # Llamada al módulo 2 (Gestión interactiva de servicios)
-            if hasattr(modulo_2_servicios_clientes, 'listar_servicios'):
-                modulo_2_servicios_clientes.listar_servicios()
-
+            # Módulo 2 (Gestión de Servicios y Clientes)
+            modulo_2_servicios_clientes.menu_servicios()
         elif opcion == "3":
-            # Módulo 3: Servicios y Matrículas
+            # Módulo 3 (Servicios y Matrículas)
             mod_3.listar_servicios()
 
         elif opcion == "4":
