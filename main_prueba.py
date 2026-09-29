@@ -6,9 +6,12 @@ from Modulo_4.Modulo_4 import Generacion_de_reportes as mod_4_reportes
 from Modulo_4.Modulo_4 import Evaluaciones_periodicas_de_condicion_fisica_y_nivel_de_riesgo as mod_4_evaluaciones
 
 def menu_principal():
-    # Inicializar servicios base si aplica
+    # Inicializar servicios base
     if hasattr(mod_3, 'inicializar_servicios_base'):
         mod_3.inicializar_servicios_base()
+        
+    if hasattr(modulo_2_servicios_clientes, 'inicializar_servicios_base'):
+        modulo_2_servicios_clientes.inicializar_servicios_base()
 
     while True:
         print("\n" + "="*45)

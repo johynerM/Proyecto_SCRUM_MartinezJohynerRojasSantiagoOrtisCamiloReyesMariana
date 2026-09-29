@@ -1,4 +1,23 @@
 lista_servicios= [ ]
+# Lista global para almacenar los servicios en el Módulo 2
+
+def inicializar_servicios_base():
+    global lista_servicios
+# Solo los carga si la lista está vacía para no duplicarlos
+    if not lista_servicios:
+        servicios_predeterminados = [
+            {"id": "1", "nombre": "Clases de yoga", "capacidad_max": 20, "instructor": "Por asignar", "clientes_inscritos": []},
+            {"id": "2", "nombre": "Clases de pilates", "capacidad_max": 15, "instructor": "Por asignar", "clientes_inscritos": []},
+            {"id": "3", "nombre": "Entrenamiento personalizado", "capacidad_max": 10, "instructor": "Por asignar", "clientes_inscritos": []},
+            {"id": "4", "nombre": "Acceso a la piscina", "capacidad_max": 30, "instructor": "N/A", "clientes_inscritos": []},
+            {"id": "5", "nombre": "Uso del gimnasio general", "capacidad_max": 50, "instructor": "N/A", "clientes_inscritos": []}
+        ]
+                
+        print("Iniciando carga de servicios base...")
+        for s in servicios_predeterminados:
+            lista_servicios.append(s)
+            print(f"✅ Servicio '{s['nombre']}' registrado con éxito.")
+        print()
 #Aqui creamos un nuevo servicio por si queremos agregar algun servicio luego y de paso tambien creamos el diccionario 
 def crear_servicio(id_servicio, nombre, capacidad, instructor): 
     nuevo_servicio={
