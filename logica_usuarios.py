@@ -1,43 +1,37 @@
 # INTERFAZ Y MENÚS DE USUARIOS
-import logica_usuarios as logica
-
 # ... (tus otras funciones: registrar_usuario, iniciar_sesion, etc.) ...
 
+# Contenido base para logica_usuarios.py
 
-# ESTA ES LA FUNCIÓN QUE TE MARCA ERROR, ASEGÚRATE DE QUE ESTÉ ESCRITA ASÍ:
-def menu_modulo_usuarios():
-    while True:
-        print("\n==============================")
-        print(" MENÚ DE USUARIOS ")
-        print("==============================")
+usuarios = {}
+usuario_creado = None
 
-        if logica.usuario_creado != None:
-            print(
-                "Usuario activo:",
-                logica.usuario_creado["nombre"],
-                "(",
-                logica.usuario_creado["rol"],
-                ")",
-            )
+def guardar_usuario(id_user, clave, rol, nombre, apellido, direccion, celular, fijo, riesgo, disponibilidad, clases):
+    global usuario_creado
+    usuarios[id_user] = {
+        "id": id_user,
+        "clave": clave,
+        "rol": rol,
+        "nombre": nombre,
+        "apellido": apellido,
+        "direccion": direccion,
+        "celular": celular,
+        "fijo": fijo,
+        "riesgo": riesgo,
+        "disponibilidad": disponibilidad,
+        "clases": clases,
+        "estado": "Activo"
+    }
+    usuario_creado = usuarios[id_user]
 
-        print("1. Registrar usuario")
-        print("2. Iniciar sesión")
-        print("3. Ver mi perfil")
-        print("4. Cerrar sesión")
-        print("5. Salir del módulo")
+def validar_usuario(id_ingresado, clave_ingresada):
+    global usuario_creado
+    if id_ingresado in usuarios and usuarios[id_ingresado]["clave"] == clave_ingresada:
+        usuario_creado = usuarios[id_ingresado]
+        return True
+    return False
 
-        opcion = input("Elija una opción (1-5): ")
+def cerrar_sesion_logica():
+    global usuario_creado
+    usuario_creado = None
 
-        if opcion == "1":
-            registrar_usuario()
-        elif opcion == "2":
-            iniciar_sesion()
-        elif opcion == "3":
-            ver_perfil()
-        elif opcion == "4":
-            cerrar_sesion()
-        elif opcion == "5":
-            print("Saliendo del módulo...")
-            break
-        else:
-            print("Opción no válida, intente de nuevo.")
