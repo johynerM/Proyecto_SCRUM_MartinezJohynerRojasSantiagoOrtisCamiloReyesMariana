@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+# Interfaz y menu de usuario
+import logica_usuarios as logica
+
+# funciones registrar_usuario, iniciar_sesion, etc
+
+# Esta es la funcion qu te permine marcar error
+def menu_modulo_usuarios():
+    while True:
+        print("\n==============================")
+        print(" Menu de usuarios ")
+=======
 # INTERFAZ Y MENÚS DE USUARIOS
 import logica_usuarios as logica
 
@@ -9,6 +21,7 @@ def menu_modulo_usuarios():
     while True:
         print("\n==============================")
         print(" MENÚ DE USUARIOS ")
+>>>>>>> 3c6a82afa8b5d62501dcdf58ca063390f60c49bf
         print("==============================")
 
         if logica.usuario_creado != None:
