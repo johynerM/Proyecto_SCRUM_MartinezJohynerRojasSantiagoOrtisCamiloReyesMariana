@@ -25,6 +25,8 @@ El **Sistema Gimnasio ForceTech** es una solución informática que permite admi
 
 Es el punto de entrada al sistema. Despliega el menú principal y redirecciona el flujo de ejecución hacia cada módulo especializado del programa mediante la importación y llamada de sus funciones correspondientes.
 
+![Texto Alternativo](imagenes\imagen_menu.jpeg)
+
 ### 2. Módulo 1: Gestión de Usuarios y Autenticación (`modulo_usuarios.py` y `logica_usuarios.py`)
 Este proyecto consiste en un módulo en Python diseñado para la interfaz y gestión de usuarios dentro de un sistema de gimnasio. Permite registrar diferentes tipos de roles, administrar credenciales de acceso, iniciar/cerrar sesión y consultar perfiles personalizados según las responsabilidades o información de cada tipo de usuario.
 
@@ -45,6 +47,8 @@ o	Adapta los campos mostrados según el rol de la persona activa (por ejemplo: n
 o	Desconecta al usuario activo del sistema y resetea la sesión en la lógica.
     5.	Menú Interactivo:
 o	Bucle while con opciones dinámicas que muestra de forma constante quién es el usuario que tiene la sesión activa.
+
+![Texto Alternativo](imagenes\modulo_1.jpeg)
 
 ### 3. Módulo 2: Gestión de Servicios y Clientes (`modulo_2_servicios_clientes.py`)
 
@@ -67,17 +71,47 @@ Por medio de un submenú el usuario podrá visualizar diferentes opciones que po
        3. Evalúa la disponibilidad de aforo (`Cupos Ocupados < Cupo Máximo`). Si hay disponibilidad, incrementa el contador y efectúa la vinculación; de lo contrario, notifica que el cupo se encuentra agotado.
      - **Función `menu_servicios()`:** Es la interfaz de interacción del módulo. Muestra las opciones disponibles en consola y captura la opción ingresada por el usuario, redirigiéndolo a la función lógica correspondiente mediante estructuras condicionales (`if-elif-else`).
 
+![Texto Alternativo](imagenes\modulo_2.jpeg)
+
 ### 4. Módulo 3: Servicios y Matrículas (`modulo_3_servicio_matricula.py`)
 Encargado de la gestión económica y administrativa de las inscripciones.
 - **Inicialización de Servicios Base:** Carga la oferta inicial de servicios disponibles.
 - **Matriculamiento:** Registro de pagos, asignación de planes y control de vigencias de suscripción.
 
-### 5. Módulo 4: Reportes e Historial (`Modulo_4_Modulo_4/`)
-Ofrece herramientas de análisis e informes para el personal administrativo y entrenadores.
-- **Reporte de Capacidad (`Generacion_de_reportes.py`):** Visualización del estado del aforo y ocupación por servicio.
-- **Evaluación Física y Nivel de Riesgo (`Evaluaciones_periodicas_de_condicion_fisica_y_nivel_de_riesgo.py`):** Seguimiento del progreso físico de los afiliados y cálculo de su nivel de riesgo.
+![Texto Alternativo](imagenes\modulo_3.jpeg)
 
+### 5. Módulo 4: Seguimiento, Evaluación y Reportes (`Modulo_4_Modulo_4/`)
+El Módulo 4 se encarga de medir el progreso de los clientes y generar la información de salida del sistema. Permite registrar la asistencia a clases/servicios, llevar evaluaciones periódicas de condición física con actualización automática del nivel de riesgo, y generar los reportes clave para la toma de decisiones (clientes inscritos, capacidad de servicios, instructores activos, clientes en riesgo y progreso por servicio).
+
+1. **Propósito General y Alcance:**
+   Este módulo administra el seguimiento del desempeño de cada cliente a lo largo del tiempo y produce los reportes que consumen otros módulos o el equipo administrativo, sin gestionar directamente los datos maestros de clientes, servicios o instructores (esos se reciben desde los módulos correspondientes).
+
+2. **Estructura de Datos y Persistencia:**
+   Maneja tres colecciones principales como listas de diccionarios:
+   - **Asistencias:** `cliente`, `servicio`, `fecha`, `estado`.
+   - **Evaluaciones:** `cliente`, `fecha`, `métricas físicas`.
+   - **Referencia a Clientes:** Referencia directa para actualizar su campo `nivel_riesgo`.
+
+3. **Funciones Principales y Flujo de Trabajo:**
+   - **Registro de Asistencia:**
+     - **Función `registrar_asistencia()`:** Registra la asistencia de un cliente a una clase/servicio en una fecha específica (presente, ausente o tarde).
+     - **Función `consultar_asistencia_por_cliente()`:** Devuelve el historial completo de asistencia de un cliente.
+     - **Función `consultar_asistencia_por_servicio()`:** Devuelve la lista de clientes que asistieron a un servicio en una fecha dada.
+     - **Función `calcular_porcentaje_asistencia()`:** Calcula el porcentaje de asistencia de un cliente, usado como insumo para el nivel de riesgo.
+   - **Evaluaciones Físicas y Nivel de Riesgo:**
+     - **Función `registrar_evaluacion_fisica()`:** Guarda los resultados de una evaluación física (peso, grasa corporal, etc.) de un cliente en una fecha determinada.
+     - **Función `calcular_nivel_de_riesgo()`:** Determina el nivel de riesgo (bajo, medio o alto) combinando el porcentaje de asistencia y la última evaluación física.
+     - **Función `actualizar_nivel_de_riesgo()`:** Actualiza el nivel de riesgo guardado en el registro del cliente.
+     - **Función `consultar_historial_evaluaciones()`:** Devuelve todas las evaluaciones físicas registradas de un cliente, base del reporte de progreso.
+   - **Generación de Reportes:**
+     - **Función `reporte_clientes_inscritos()`:** Genera el listado de clientes actualmente activos/inscritos.
+     - **Función `reporte_servicios_capacidad()`:** Genera el reporte de capacidad máxima vs. cupos ocupados por servicio.
+     - **Función `reporte_instructores_activos()`:** Genera el listado de instructores con estado activo.
+     - **Función `reporte_clientes_riesgo()`:** Genera el listado de clientes cuyo nivel de riesgo es igual o superior al indicado.
+     - **Función `reporte_progreso_por_servicio()`:** Genera el historial de evaluaciones de todos los clientes inscritos en un servicio, mostrando su progreso.
 ---
+
+![Texto Alternativo](imagenes\modulo_4.jpeg)
 
 ## 📁 Estructura del Proyecto
 
