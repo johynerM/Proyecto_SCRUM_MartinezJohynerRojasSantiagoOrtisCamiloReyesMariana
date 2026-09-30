@@ -163,7 +163,7 @@ Puedes consultar el documento oficial de la propuesta y planificación SCRUM del
 
 
 ## Contribuyentes 
-- Johyner Martinez (Product Owner), 
-- Mariana Reyes (SCRUM Master), 
-- Sebastian Rojas (Equipo de Desarrollo), 
-- Camilo Ortiz (Equipo de Desarrollo).
+- Johyner Steven Martinez Cepeda (Product Owner), 
+- Mariana Reyes Pabón (SCRUM Master), 
+- Santiago Rojas Buitrago (Equipo de Desarrollo), 
+- Andrés Camilo Ortiz Posada (Equipo de Desarrollo).
