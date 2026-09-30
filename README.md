@@ -140,7 +140,7 @@ El Módulo 4 se encarga de medir el progreso de los clientes y generar la inform
 
 ![Módulo 4](imagenes/modulo_4.jpeg)
 
-## 📁 Estructura del Proyecto
+## 📁 Estructura del Proyecto 
 
 ```text
 .
