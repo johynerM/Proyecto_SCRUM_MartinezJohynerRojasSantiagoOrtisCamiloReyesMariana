@@ -161,6 +161,11 @@ Puedes consultar el documento oficial de la propuesta y planificación SCRUM del
 
 * [📄 Documento Guía SCRUM - Gimnasio ForceTech](https://docs.google.com/document/d/1APy3n7yFOC-o_VesHDCcHc4gQ2AV60p_/edit?usp=sharing)
 
+## 🎨 Presentación y Diseño
+
+Puedes visualizar la presentación del proyecto en Canva a través del siguiente enlace:
+
+* [🎨 Presentación del Proyecto - Gimnasio ForceTech](https://canva.link/q6ssyzt3oche3i9)
 
 ## Contribuyentes 
 - Johyner Steven Martinez Cepeda (Product Owner), 
