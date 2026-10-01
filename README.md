@@ -154,7 +154,6 @@ El Módulo 4 se encarga de medir el progreso de los clientes y generar la inform
     └── Evaluaciones_periodicas_de_condicion_fisica_y_nivel_de_riesgo.py # Evaluaciones físicas
 ``` 
 
-
 ## 📄 Documentación y Planificación
 
 Puedes consultar el documento oficial de la propuesta y planificación SCRUM del proyecto en el siguiente enlace:
